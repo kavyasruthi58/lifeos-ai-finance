@@ -1,13 +1,3 @@
-Here’s your fully updated professional README.md with:
-
-* CSV upload feature
-* PDF report generation
-* updated dashboard section
-* updated screenshots section
-* updated tech stack
-* updated roadmap
-* cleaner professional wording
-
 LifeOS AI — Personal Finance Intelligence Platform
 
 An AI-powered personal finance analytics platform combining machine learning, REST APIs, interactive dashboards, fraud detection, downloadable reports, and AI-generated financial insights to help users make smarter financial decisions.
