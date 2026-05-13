@@ -1,0 +1,6 @@
+transaction_id,user_id,date,description,amount,merchant,category,is_fraud
+1,U999,2026-01-01,STARBUCKS PURCHASE,8.50,Starbucks,Food,0
+2,U999,2026-01-05,UBER PURCHASE,24.30,Uber,Transport,0
+3,U999,2026-01-08,UNKNOWN ONLINE PAYMENT,920.00,Unknown,Shopping,1
+4,U999,2026-01-15,NETFLIX PURCHASE,15.99,Netflix,Entertainment,0
+5,U999,2026-02-01,WALMART PURCHASE,120.50,Walmart,Groceries,0
