@@ -15,6 +15,7 @@
 - [Running the Application](#running-the-application)
 - [API Reference](#api-reference)
 - [Dashboard](#dashboard)
+- [Changelog](#changelog)
 - [Roadmap](#roadmap)
 
 ---
@@ -95,7 +96,7 @@ Generates personalized financial recommendations based on spending behavior:
 
 ### 📤 CSV Upload Support
 
-Upload custom transaction datasets directly into the dashboard for real-time analysis and visualization.
+Upload one or multiple CSV files simultaneously. The dashboard automatically merges and analyzes all uploaded datasets together, with a collapsible preview of the combined data directly in the sidebar.
 
 ---
 
@@ -117,6 +118,18 @@ Analyze financial behavior using:
 - Date & category filtering
 - Fraud-user tracking
 - Dynamic dashboard updates
+
+---
+
+### 💬 AI Chat Assistant *(Updated)*
+
+Ask questions about spending, fraud, savings, and financial behavior through a fully redesigned chat interface featuring:
+
+- **Custom chat bubble UI** — styled user and bot message bubbles rendered via `components.html`
+- **Quick-prompt pill buttons** — one-click prompts: 💸 Overspending?, 🚨 Fraud?, 💰 Save money?
+- **Inline chat input** — text field + Send button integrated directly below the chat window
+- **Clear chat button** — reset conversation history at any time
+- **Auto-scroll** — chat window always scrolls to the latest message
 
 ---
 
@@ -267,20 +280,70 @@ The Streamlit dashboard provides a complete AI-powered financial analytics exper
 
 - User-level financial analytics
 - Interactive category & date filtering
-- CSV upload support
+- Multi-file CSV upload with sidebar preview
 - Spending distribution charts
-- Monthly spending trend analysis
-- Fraud detection alerts
+- Monthly spending trend analysis (with single-month bar chart fallback)
+- Fraud detection alerts with header risk badge
 - AI-generated financial recommendations
+- Redesigned AI chat assistant with bubble UI and quick-prompt buttons
 - Downloadable CSV & PDF financial reports
 - Multi-user transaction analytics
 
-### Screenshots
+---
+
+## Screenshots
+
+### ⬅️ Before Updates
+
+> Original dashboard — basic chat input, single CSV upload, no risk badge, plain success alerts.
 
 ![Dashboard Overview](screenshots/Dashboard_1.png)
 ![Analytics View](screenshots/Dashboard_2.png)
 ![Detailed Report](screenshots/Dashboard_3.png)
 ![CSV Upload & PDF Report](screenshots/CSV_PDF.png)
+
+---
+
+### ➡️ After Updates *(Latest — Today)*
+
+> Redesigned dashboard — custom chat bubbles, quick-prompt pills, multi-file upload with preview, header risk/safe badge, branded teal alerts, and single-month chart fallback.
+![dashboard_ui_upgrade_1.png](screenshots/dashboard_ui_upgrade_1.png)
+![dashboard_ui_upgrade_2.png](screenshots/dashboard_ui_upgrade_2.png)
+![dashboard_ui_upgrade_3.png](screenshots/dashboard_ui_upgrade_3.png)
+![dashboard_ui_upgrade_4.png](screenshots/dashboard_ui_upgrade_4.png) 
+---
+
+## Changelog
+
+### 🆕 Latest Update
+
+#### ✅ New Features
+
+| Feature | Description |
+|---|---|
+| **Custom Chat Bubble UI** | Replaced `st.chat_message` with fully custom HTML/CSS chat bubbles rendered via `components.html`. User messages appear right-aligned in teal; bot responses appear left-aligned in white with border. |
+| **Quick-Prompt Pill Buttons** | Added three one-click prompt buttons — 💸 *Overspending?*, 🚨 *Fraud?*, 💰 *Save money?* — so users can explore insights without typing. |
+| **Clear Chat Button** | Added a 🗑 *Clear chat* button to reset the conversation history at any time. |
+| **Inline Chat Input** | Replaced `st.chat_input` with a combined `st.text_input` + Send button layout for a tighter, more polished chat experience. |
+| **Multi-File CSV Upload** | Sidebar now accepts multiple CSV files at once. All uploaded files are merged into a single unified dataset for analysis. |
+| **Uploaded Dataset Preview** | A collapsible expander in the sidebar shows a 10-row preview of the merged uploaded dataset. |
+| **Header Risk / Safe Badge** | A dynamic badge in the dashboard header shows ⚠ *Risk: N flagged* (red) or ✓ *All clear* (green) based on fraud detection results for the selected user. |
+| **Single-Month Chart Fallback** | When only one month of data is present, the monthly trend section now renders a bar chart instead of a meaningless flat line, with an explanatory annotation. |
+| **Branded Teal Alert Styling** | All Streamlit success/info alerts have been overridden with the brand teal color (`#0F3D4C`) to replace Streamlit's default green — applied globally including the sidebar CSV upload confirmation. |
+| **Auto-Scroll Chat Window** | The chat bubble container auto-scrolls to the latest message via injected JavaScript. |
+
+---
+
+#### 🔁 Changed / Improved
+
+| Area | Before | After |
+|---|---|---|
+| Chat interface | `st.chat_input` + `st.chat_message` (default Streamlit style) | Custom HTML/CSS bubble UI via `components.html` |
+| CSV upload | Single file upload | Multiple files accepted and merged automatically |
+| Monthly trend chart | Always rendered as a line chart (flat/broken with one month) | Falls back to bar chart for single-month datasets |
+| Success alerts | Streamlit default green | Brand teal (`#0F3D4C`) with left border accent |
+| Header | Title + subtitle only | Title + subtitle + dynamic risk/safe badge |
+| Sidebar data feedback | Plain `st.success()` text | Styled teal info box with file count confirmation |
 
 ---
 
